@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030303;
+  --foreground: #f8fafc;
+  --cyber-cyan: #06b6d4;
+  --cyber-blue: #3b82f6;
+  --cyber-purple: #8b5cf6;
+  --cyber-neon: #a855f7;
+  --card-glow: 0 0 25px rgba(6, 182, 212, 0.03);
 }
 
 @theme inline {
@@ -12,15 +17,157 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: #030303;
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 3, 3, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.3);
+}
+
+/* Custom Animations & Grids */
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4rem);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
+
+@keyframes cyberPulse {
+  0%, 100% {
+    opacity: 0.25;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.35);
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Class Helpers */
+.animate-grid-move {
+  animation: gridMove 20s linear infinite;
+}
+
+.animate-scanline {
+  animation: scanline 6s linear infinite;
+}
+
+.animate-cyber-pulse {
+  animation: cyberPulse 3s ease-in-out infinite;
+}
+
+.animate-orb-float {
+  animation: orbFloat 6s ease-in-out infinite;
+}
+
+.animate-text-shine {
+  background-size: 200% auto;
+  animation: textShine 4s linear infinite;
+}
+
+/* Cyber card borders */
+.cyber-card {
+  position: relative;
+  background: rgba(9, 9, 11, 0.45);
+  border: 1px solid rgba(63, 63, 70, 0.2);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--card-glow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.08), 0 0 5px rgba(139, 92, 246, 0.05);
+  background: rgba(9, 9, 11, 0.6);
+}
+
+.cyber-glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.cyber-glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+/* Scanning log scanlines */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(6, 182, 212, 0.4), transparent);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+

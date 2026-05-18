@@ -446,7 +446,7 @@ export default function Home() {
             <div className="space-y-8 animate-[fadeIn_0.35s_ease-out]">
               
               {/* Header Title Hero */}
-              <HeroSection />
+              <HeroSection isGenerating={isGenerating} progress={progress} />
 
               {/* Stats overview widgets */}
               <AnalyticsCards historyCount={testimonials.length} />
