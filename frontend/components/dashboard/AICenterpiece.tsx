@@ -112,8 +112,8 @@ export default function AICenterpiece({ isGenerating = false, progress = 0 }: AI
       {agents.map((agent, i) => {
         const angleRad = (agent.angle * Math.PI) / 180;
         const radius = 104; // pixel offset from center
-        const x = Math.cos(angleRad) * radius;
-        const y = Math.sin(angleRad) * radius;
+        const x = Number((Math.cos(angleRad) * radius).toFixed(4));
+        const y = Number((Math.sin(angleRad) * radius).toFixed(4));
         const AgentIcon = agent.icon;
 
         return (
@@ -154,8 +154,8 @@ export default function AICenterpiece({ isGenerating = false, progress = 0 }: AI
         {agents.map((agent) => {
           const angleRad = (agent.angle * Math.PI) / 180;
           const radius = 104;
-          const endX = 144 + Math.cos(angleRad) * radius;
-          const endY = 144 + Math.sin(angleRad) * radius;
+          const endX = Number((144 + Math.cos(angleRad) * radius).toFixed(4));
+          const endY = Number((144 + Math.sin(angleRad) * radius).toFixed(4));
 
           return (
             <line
