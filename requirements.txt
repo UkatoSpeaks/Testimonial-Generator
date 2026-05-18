@@ -1,0 +1,102 @@
+# =========================
+# CORE AI FRAMEWORKS
+# =========================
+langchain
+langgraph
+langchain-core
+langchain-community
+
+# =========================
+# MISTRAL AI
+# =========================
+langchain-mistralai
+mistralai
+
+# =========================
+# ENVIRONMENT VARIABLES
+# =========================
+python-dotenv
+
+# =========================
+# API SERVER
+# =========================
+fastapi
+uvicorn
+
+# =========================
+# DATA VALIDATION
+# =========================
+pydantic
+
+# =========================
+# MEMORY / STORAGE
+# =========================
+redis
+
+# =========================
+# DATABASE
+# =========================
+sqlalchemy
+psycopg2-binary
+
+# =========================
+# VECTOR DATABASE
+# =========================
+chromadb
+
+# =========================
+# EMBEDDINGS & TOKENIZATION
+# =========================
+tiktoken
+
+# =========================
+# HTTP REQUESTS
+# =========================
+requests
+httpx
+
+# =========================
+# UTILITIES
+# =========================
+typing-extensions
+
+# =========================
+# LOGGING & DEBUGGING
+# =========================
+rich
+
+# =========================
+# OPTIONAL AI TOOLS
+# =========================
+duckduckgo-search
+
+# =========================
+# JSON & STRUCTURED OUTPUTS
+# =========================
+orjson
+
+# =========================
+# ASYNC SUPPORT
+# =========================
+aiofiles
+
+# =========================
+# TESTING
+# =========================
+pytest
+
+# =========================
+# SECURITY
+# =========================
+python-jose
+passlib[bcrypt]
+
+# =========================
+# CORS SUPPORT
+# =========================
+python-multipart
+
+# =========================
+# LANGSMITH (OPTIONAL)
+# =========================
+langsmith
