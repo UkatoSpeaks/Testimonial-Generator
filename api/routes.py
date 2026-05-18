@@ -52,7 +52,8 @@ def generate_testimonials(request: TestimonialRequest):
 
     return {
         "testimonials": result["humanized_testimonials"],
-        "reviews": result["review_scores"]
+        "reviews": result["review_scores"],
+        "personas": result["personas"]
     }
 
 
@@ -138,7 +139,8 @@ async def testimonial_stream_generator(request):
     yield json.dumps({
         "event": "completed",
         "testimonials": result["humanized_testimonials"],
-        "reviews": result["review_scores"]
+        "reviews": result["review_scores"],
+        "personas": result["personas"]
     }) + "\n"
 
 
